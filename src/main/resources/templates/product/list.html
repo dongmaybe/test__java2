@@ -1,0 +1,21 @@
+<!-- src/main/resources/templates/product/list.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Product List</title>
+</head>
+<body>
+<h1>Products</h1>
+<form action="#" method="get">
+    <input type="text" name="search" placeholder="Search for products">
+    <button type="submit">Search</button>
+</form>
+<ul>
+    <li th:each="product : ${products}">
+        <span th:text="${product.name}"></span>
+        <span th:text="${product.price}"></span>
+        <a th:href="@{/add-to-cart/{id}(id=${product.id})}">Add to cart</a>
+    </li>
+</ul>
+</body>
+</html>
